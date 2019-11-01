@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<title>Results</title>
+	<link rel="stylesheet" type="text/css" href="results_sample.css">
+	<link rel="shortcut icon" href="images/star.png" />
+	<style>
+		#map{
+			height: 400px;
+			width:100%;
+		}
+	</style>
+</head>
+
+<body>
+	<!--navi and body--> 
+	<div id="everything">
+		<!-- navi-bar -->
+		<div class="navi-bar">
+			<div id="search-bar">
+				<input type="text" name="storeName" id="search-bar-input" value="Hamilton">
+			</div>
+			<div id="search-button" onclick="location='results_sample.html'">
+				<span id="search-button-text">Search</span>
+			</div>
+			<div class="account" onclick="window.open('registration.html')" id="log-in">
+				<div class="account-content">Log in</div>
+			</div>
+			<div class="account" onclick="window.open('registration.html')" id="sign-up">
+				<div class="account-content">Sign Up</div>
+			</div>
+
+		</div>
+		<div class="showcase" id ="map"></div>
+		
+		
+		<script>
+    function initMap(){
+      // Map options
+      var options = {
+        zoom:15,
+        center:{lat:43.254871,lng:-79.866707}
+      }
+
+      // New map
+      var map = new google.maps.Map(document.getElementById('map'), options);
+
+      google.maps.event.addListener(map, 'click', function(event){
+        // Add marker
+        addMarker({coords:event.latLng});
+      });
+
+
+      // Array of markers
+      var markers = [
+        {
+          coords:{lat:43.259341,lng:-79.866684},
+		  title:'August 8',
+          content:'<h1>Address:1 Wilson St</h1>'
+        },
+		 {
+          coords:{lat:43.254037,lng:-79.865072},
+          content:'<h1>Teahut</h1>'
+        },
+		{
+          coords:{lat:43.254871,lng:-79.866707},
+          content:'<h1>Saigon House</h1>'
+        },
+		{
+          coords:{lat:43.250311,lng:-79.871673},
+          content:'<h1>Wass Ethiopian</h1>'
+        }
+      ];
+		
+		
+	var contentString = '<div id="content">'+
+		'<div id="siteNotice">'+
+		'</div>'+
+		'<h1 id="firstHeading" class="firstHeading">August 8</h1>'+
+		'<div style="float:right; width:100%;margin-top: -19px;"><p>August 8 was originally established in 2008 where its first location opened in downtown Hamilton, Ontario.  As a new concept of dining, it was recognized as the first restaurant of its kind in the area to bring the finest aspects of both Cantonese-style dim sum and Japanese cuisine. The address is 1 Wilson St,Hamilton,ON. The contact number is (905)-524-3838.<p> Individual object: August 8, <a href="http://cystal0429.com/individual_sample.html">'+
+		'http://cystal0429.com/individual_sample.html'+
+		'.</p></div>'+
+		'</div>'+
+		'</div>';
+
+      // Loop through markers
+      for(var i = 0;i < markers.length;i++){
+        addMarker(markers[i]);
+      }
+
+      // Add Marker Function
+      function addMarker(props){
+        var marker = new google.maps.Marker({
+          position:props.coords,
+          map:map,
+        });
+
+        if(props.iconImage){
+          // Set icon image
+          marker.setIcon(props.iconImage);
+        }
+
+        // Check content
+        if(props.content){
+          var infoWindow = new google.maps.InfoWindow({
+            content:contentString
+          });
+
+          marker.addListener('click', function(){
+            infoWindow.open(map, marker);
+          });
+        }
+      }
+    }
+  </script>
+		
+		<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDE5oUUoV0nH6yZqsX0CMuG2EJAdJycONQ&callback=initMap">
+    </script>
+		
+		
+		<!--content-->
+		<div class="content">
+			
+			<div class="item" onclick="window.open('individual_sample.html')">
+				<div class="subitem store-info">
+					<div class="title-and-rate">
+						<div class="title"><span>Wass Ethiopian</span></div>
+						<div class="rate">
+							<img src="images/star.png" alt= "Images can not be displayed" class="star">
+							<img src="images/star.png" alt= "Images can not be displayed" class="star">
+							<img src="images/star.png" alt= "Images can not be displayed" class="star">
+							<img src="images/star.png" alt= "Images can not be displayed" class="star">
+							<img src="images/star.png" alt= "Images can not be displayed" class="star">
+
+						</div>
+					</div>
+					<div class="address">Address:207 James St S</div>
+					
+					<div class="description">Opening in the fall of 2009, The WASS is pleased to bring you the best in Ethiopian cuisine.
+
+With vegetarian, vegan and meat lover's dishes, there is something for everyone at The WASS!</div>
+				</div>
+				
+			</div>
+
+			<div class="item" onclick="window.open('individual_sample.html')">
+				<div class="subitem store-info">
+					<div class="title-and-rate">
+						<div class="title"><span>August8</span></div>
+						<div class="rate">
+							<img src="images/star.png" alt= "Images can not be displayed" class="star">
+							<img src="images/star.png" alt= "Images can not be displayed" class="star">
+							<img src="images/star.png" alt= "Images can not be displayed" class="star">
+							<img src="images/star.png" alt= "Images can not be displayed" class="star">
+							<img src="images/star.png" alt= "Images can not be displayed" class="star">
+
+						</div>
+					</div>
+					<div class="address">Address:1 Wilson Street</div>
+					<div class="description">August 8 was originally established in 2008 where its first location opened in downtown Hamilton, Ontario.  As a new concept of dining, it was recognized as the first restaurant of its kind in the area to bring the finest aspects of both Cantonese-style dim sum and Japanese cuisine.</div>
+				</div>
+			</div>
+
+			<div class="item" onclick="window.open('individual_sample.html')">
+				<div class="subitem store-info">
+					<div class="title-and-rate">
+						<div class="title"><span>Teahut</span></div>
+						<div class="rate">
+							<img src="images/star.png" alt= "Images can not be displayed" class="star">
+							<img src="images/star.png" alt= "Images can not be displayed" class="star">
+							<img src="images/star.png" alt= "Images can not be displayed" class="star">
+							<img src="images/star.png" alt= "Images can not be displayed" class="star">
+							<img src="images/star.png" alt= "Images can not be displayed" class="star">
+
+						</div>
+					</div>
+					<div class="address">Address:100 Main Street E</div>
+					<div class="description">One of the best places to eat in Hamilton, enjoy a wicked experience and a friendly staff. TEA HUT Bubble Tea is the perfect place for families to experience appetizing asian food, like specialty chicken.</div>
+				</div>
+			</div>
+
+			<div class="item" onclick="window.open('individual_sample.html')">
+				<div class="subitem store-info">
+					<div class="title-and-rate">
+						<div class="title"><span>Saigon House</span></div>
+						<div class="rate">
+							<img src="images/star.png" alt= "Images can not be displayed" class="star">
+							<img src="images/star.png" alt= "Images can not be displayed" class="star">
+							<img src="images/star.png" alt= "Images can not be displayed" class="star">
+							<img src="images/star.png" alt= "Images can not be displayed" class="star">
+							<img src="images/star.png" alt= "Images can not be displayed" class="star">
+
+						</div>
+					</div>
+					<div class="address">Address:27 John Street S</div>
+					<div class="description">SAIGON HOUSE is a large upscale Korean resto with traditional grilles in the tables so that you cook your own food. For a moderate ($25.99 dinner) price, we had All You Can Eat orders of beef, short ribs, chicken, lamb, sausage, mussels, fish, shrimp, squid, onions, mushrooms, green peppers.</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<!--footer-->
+	<div class="footer">
+		<div id="info">
+			<span id="information">
+				This site is created by Qifeng.
+			</span>
+		</div>
+	</div>
+
+</body>
+
+</html>
